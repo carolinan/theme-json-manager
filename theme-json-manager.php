@@ -149,15 +149,10 @@ function theme_json_manager_options_page_submit() {
 						} else {
 							/**
 							 * Re-add the theme font sizes.
-							 * To use the default font sizes, replace 'theme' with 'default'.
+							 * To use the WP default font sizes, replace 'theme' with 'default'.
 							*/
 							$settings_data = wp_get_global_settings();
 							$new_settings['settings'][$key][$nested_key] = $settings_data['typography']['fontSizes']['theme'];
-						}
-					} elseif ( $nested_key === 'fontFamilies' ) {
-						// Font families are disabled, add an empty array.
-						if ( $nested_value === 'false' ) {
-							$new_settings['settings'][$key][$nested_key] = array();
 						}
 					} else {
 						if ( $nested_value === 'true' ) {
